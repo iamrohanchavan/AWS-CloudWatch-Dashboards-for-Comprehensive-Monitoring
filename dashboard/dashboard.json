@@ -1,0 +1,89 @@
+{
+  "widgets": [
+
+    {
+      "type": "metric",
+      "x": 0,
+      "y": 0,
+      "width": 12,
+      "height": 6,
+      "properties": {
+        "metrics": [
+          [ "AWS/Billing", "EstimatedCharges", "ServiceName", "AmazonEC2" ],
+          [ "AWS/Billing", "EstimatedCharges", "ServiceName", "AmazonS3" ]
+        ],
+        "view": "timeSeries",
+        "region": "us-east-1",
+        "title": "Estimated AWS Charges (EC2 & S3)"
+      }
+    },
+
+    {
+      "type": "log",
+      "x": 0,
+      "y": 7,
+      "width": 12,
+      "height": 6,
+      "properties": {
+        "region": "ap-south-1",
+        "title": "Lambda Application Logs",
+        "logGroupNames": [
+          "/aws/lambda/myfun"
+        ],
+        "query": "fields @timestamp, @message | sort @timestamp desc | limit 20",
+        "view": "table"
+      }
+    },
+
+    {
+      "type": "metric",
+      "x": 0,
+      "y": 14,
+      "width": 12,
+      "height": 6,
+      "properties": {
+        "metrics": [
+          [ "AWS/EC2", "NetworkIn" ],
+          [ "AWS/EC2", "NetworkOut" ]
+        ],
+        "view": "timeSeries",
+        "region": "ap-south-1",
+        "title": "EC2 Network Performance"
+      }
+    },
+
+    {
+      "type": "metric",
+      "x": 0,
+      "y": 21,
+      "width": 12,
+      "height": 6,
+      "properties": {
+        "metrics": [
+          [ "AWS/ApplicationELB", "RequestCount" ],
+          [ "AWS/ApplicationELB", "TargetResponseTime" ]
+        ],
+        "view": "timeSeries",
+        "region": "ap-south-1",
+        "title": "ELB Request Count & Latency"
+      }
+    },
+
+    {
+      "type": "metric",
+      "x": 0,
+      "y": 28,
+      "width": 12,
+      "height": 6,
+      "properties": {
+        "metrics": [
+          [ "AWS/GuardDuty", "FindingCount" ]
+        ],
+        "view": "singleValue",
+        "region": "ap-south-1",
+        "title": "GuardDuty Security Findings"
+      }
+    }
+
+  ]
+}
